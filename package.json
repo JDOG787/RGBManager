@@ -1,0 +1,23 @@
+{
+  "name": "RGBManager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JDOG787/RGBManager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JDOG787/RGBManager/issues"
+  },
+  "homepage": "https://github.com/JDOG787/RGBManager#readme",
+  "dependencies": {
+    "openrgb": "^0.1.2"
+  }
+}
