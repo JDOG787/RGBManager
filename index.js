@@ -2,7 +2,7 @@ const { OpenRGBClient } = require("openrgb");
 
 async function start() {
     const client = new OpenRGBClient({
-        host: "localhost",
+        host: "127.0.0.1",
         port: 6742,
         name: "Red Example"
     });
@@ -12,14 +12,24 @@ async function start() {
 
     for (let deviceId = 0; deviceId < controllerCount; deviceId++) {
         const device = await client.getDeviceController(deviceId);
-        const colors = Array(device.colors.length).fill({
+        let colors = Array(device.colors.length).fill({
+            red: 0x66,
+            green: 0xD0,
+            blue: 0xDE
+        });
+
+        console.log(`Setting the color of ${device.name}`);
+        await client.updateLeds(deviceId, colors);
+
+        colors = Array(device.colors.length).fill({
             red: 0xFF,
             green: 0x00,
             blue: 0x00
         });
 
-        console.log(`Setting the color of ${device.name}`);
-        await client.updateLeds(deviceId, colors);
+        setTimeout(() => {
+            client.updateLeds(deviceId, colors);
+        },1000)
     }
 
     await client.disconnect();
